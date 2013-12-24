@@ -5,3 +5,4 @@
 .classpath
 target
 MANIFEST.MF
+.DS_Store

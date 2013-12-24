@@ -71,7 +71,7 @@ public abstract class ReceivingAsync<M extends UpnpMessage> implements Runnable 
                 execute();
             } catch (Exception ex) {
                 Throwable cause = Exceptions.unwrap(ex);
-                if (cause instanceof InterruptedException) {
+                if (cause instanceof InterruptedException || cause instanceof RouterException) {
                     log.log(Level.INFO, "Interrupted protocol '" + getClass().getSimpleName() + "': " + ex, cause);
                 } else {
                     throw new RuntimeException(

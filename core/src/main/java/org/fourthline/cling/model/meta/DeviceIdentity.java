@@ -65,6 +65,7 @@ public class DeviceIdentity {
 
     @Override
     public int hashCode() {
+        if (udn == null) return 0;
         return udn.hashCode();
     }
 
