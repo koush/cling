@@ -54,20 +54,6 @@
                 </executions>
             </plugin>
 
-            <!-- Generate documentation for distribution packaging -->
-            <plugin>
-                <groupId>org.fourthline.lemma</groupId>
-                <artifactId>lemma-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>prepare-package-manual</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>manual</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
             <!-- Website lifecycle -->
             <plugin>

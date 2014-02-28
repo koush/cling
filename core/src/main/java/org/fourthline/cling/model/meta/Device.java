@@ -224,7 +224,9 @@ public abstract class Device<DI extends DeviceIdentity, D extends Device, S exte
     }
 
     protected D find(UDN udn, D current) {
-        if (current.getIdentity().getUdn().equals(udn)) return current;
+        if (current.getIdentity() != null && current.getIdentity().getUdn() != null) {
+            if (current.getIdentity().getUdn().equals(udn)) return current;
+        }
         if (current.hasEmbeddedDevices()) {
             for (D embeddedDevice : (D[]) current.getEmbeddedDevices()) {
                 D match;
@@ -237,7 +239,9 @@ public abstract class Device<DI extends DeviceIdentity, D extends Device, S exte
     protected Collection<D> findEmbeddedDevices(D current) {
         Collection<D> devices = new HashSet();
         if (!current.isRoot()) {
-            devices.add(current);
+            if (current.getIdentity().getUdn() != null) {
+                devices.add(current);
+            }
         }
         if (current.hasEmbeddedDevices()) {
             for (D embeddedDevice : (D[]) current.getEmbeddedDevices()) {
